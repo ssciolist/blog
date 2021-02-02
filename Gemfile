@@ -32,6 +32,7 @@ group :development, :test do
   gem 'launchy'
   gem 'simplecov'
   gem 'pry'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
