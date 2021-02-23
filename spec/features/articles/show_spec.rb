@@ -6,7 +6,8 @@ RSpec.describe "articles show page", type: :feature do
 
         visit root_path
         visit article_path(article_1)
-        expect(page).to have_link(article_1.title, exact: true)
-        expect(page).to have_link(article_2.title, exact: true)
+
+        parameterized_title = article_1.title.downcase.gsub(" ", "-")
+        expect(page).to have_current_path("/articles/#{parameterized_title}")
     end
 end
