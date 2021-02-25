@@ -1,16 +1,34 @@
 require 'rails_helper'
 
-Rspec.describe 'Create article from index', type: :feature do
-    it 'can create an article with a title' do
-        visit root_path
-        click_link 'New article'
-        
-        expect(current_path).to eq('/articles/new')
+RSpec.describe 'Create article from index', focus: :true do
+    it 'a registered User' do
+        it 'can create an article with a title' do
+            sole_user = User.create(username: 'MeganArellano', password: 'MyPassword')
 
-        fill_in 'Title', with: 'My second post'
+            visit '/admin'
 
-        click_on 'Create post'
+            fill_in 'user[username]', with sole_user.username
+            fill_in 'user[password]', with sole_user.password
+            click_on 'Login'
+            
+            expect(current_path).to eq(root_path)
+            click_on 'Create new article'
 
-        expect(current_path).to eq('/articles/my-second-post')
+            expect(current_path).to eq('/articles/new')
+
+            fill_in 'Title', with: 'My second post'
+
+            click_on 'Create post'
+
+            expect(current_path).to eq('/articles/my-second-post')
+        end
+    end
+
+    it 'a visitor on the root page' do
+        it 'will not see any link to create a post' do
+            visit root_path
+
+            expect(page).not_to have_link('Create new article')
+        end
     end
 end
