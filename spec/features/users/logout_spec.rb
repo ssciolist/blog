@@ -6,8 +6,8 @@ RSpec.describe 'Log out function exists', focus: :true do
 
             visit '/admin'
 
-            fill_in 'user[username]', with sole_user.username
-            fill_in 'user[password]', with sole_user.password
+            fill_in 'user[username]', with: "#{sole_user.username}"
+            fill_in 'user[password]', with: "#{sole_user.password}"
             click_on 'Login'
             
             expect(current_path).to eq(root_path)
@@ -16,6 +16,5 @@ RSpec.describe 'Log out function exists', focus: :true do
             expect(current_path).to eq(root_path)
 
             expect(page).not_to have_link('Create new article')
-        end
     end
 end
