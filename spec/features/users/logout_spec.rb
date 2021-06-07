@@ -5,10 +5,9 @@ RSpec.describe 'Log out function exists', focus: :true do
             sole_user = User.create(username: 'MeganArellano', password: 'MyPassword')
 
             visit '/admin'
-
-            fill_in 'user[username]', with: "#{sole_user.username}"
-            fill_in 'user[password]', with: "#{sole_user.password}"
-            click_on 'Login'
+            fill_in :username, with: "#{sole_user.username}"
+            fill_in :password, with: "#{sole_user.password}"
+            click_on 'Log in'
             
             expect(current_path).to eq(root_path)
             click_on 'Log out'
