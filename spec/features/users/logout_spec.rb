@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Log out function exists', focus: :true do
+RSpec.describe 'Log out function exists' do
     it 'a registered User can log in and out' do
             sole_user = User.create(username: 'MeganArellano', password: 'MyPassword')
 
