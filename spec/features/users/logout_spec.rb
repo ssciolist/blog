@@ -14,6 +14,6 @@ RSpec.describe 'Log out function exists', focus: :true do
 
             expect(current_path).to eq(root_path)
 
-            expect(page).not_to have_link('Create new article')
+            expect(page).not_to have_link('Log out')
     end
 end

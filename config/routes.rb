@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'articles#index'
   get 'admin', to: 'sessions#new'
   post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
   
   resources :articles, only: %i[show]
 end
