@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Create article from index:' do
-    context 'A registered user', focus: true do
+    context 'A registered user' do
         include_context 'registered_user'
 
         it 'can create an article with a title' do
