@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
     before_action :require_current_user, only: [:new, :create]
 
     def index
-        @articles = Article.all
+        @articles = Article.published
     end
 
     def show
