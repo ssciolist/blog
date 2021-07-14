@@ -11,8 +11,7 @@ RSpec.describe 'A visitor' do
         visit article_path(article_1)
 
         slug_title = article_1.title.downcase.gsub(' ', '-')
-        expect(page).to have_current_path('/articles/#{slug_title}')
-
+        expect(page).to have_current_path("/articles/#{slug_title}")
         expect(page).to have_content(article_1.title)        
         expect(page).to have_content(article_1.body.body.to_html)        
     end
