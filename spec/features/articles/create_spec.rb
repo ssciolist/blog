@@ -11,6 +11,7 @@ RSpec.describe 'Create article from index:' do
             expect(current_path).to eq(new_article_path)
 
             fill_in 'Title', with: 'My second post'
+            check 'Published'
             click_on 'Create article'
 
             expect(current_path).to eq('/articles/my-second-post')
