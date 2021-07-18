@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'VT323';
+    src: 
+        url('VT323-Regular.ttf') format('truetype');
+}
+html {
+    height: 100%;
+    background: linear-gradient(to bottom, #A95FEE, #F19A3E);
+}
+
+.trix-content {
+    border: solid;
+    margin: 2%;
+    padding: 2%;
+    background-color: blanchedalmond;
+    font-family: monospace;
+
+}
+
+.article-title {
+    font-family: 'VT323';
+    font-size: x-large;
+}
