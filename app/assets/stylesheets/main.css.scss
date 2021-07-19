@@ -8,16 +8,36 @@ html {
     background: linear-gradient(to bottom, #A95FEE, #F19A3E);
 }
 
-.trix-content {
-    border: solid;
-    margin: 2%;
-    padding: 2%;
-    background-color: blanchedalmond;
-    font-family: monospace;
+body {
+    display: grid;
+    grid-template-columns: 5% 30% 30% 30% 5%;
+}
 
+nav {
+    grid-column: span 5;
+    background-color: black;
+}
+
+main {
+    grid-column: 2 / 4;
+}
+
+article {
+    margin-bottom: 4%;
 }
 
 .article-title {
     font-family: 'VT323';
     font-size: x-large;
+}
+
+.trix-content {
+    border: solid;
+    background-color: blanchedalmond;
+    font-family: monospace;
+    padding: 20px;
+}
+
+.full-page {
+    grid-column: 2 / 5;
 }
