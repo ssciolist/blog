@@ -1,5 +1,6 @@
 <nav>
-    <ol>
+    <%= image_tag('/assets/Home.png', alt:'Home', class:'nav-home') %>
+    <ol class='admin-nav'>
         <% if registered_user %>
             <li>
                 <%= link_to 'Log out', logout_path %>
@@ -9,4 +10,5 @@
             </li>
         <% end %>
     </ol>
+    <%= image_tag('/assets/Flames.png', alt:'Why?', class:'nav-why') %>
 </nav>

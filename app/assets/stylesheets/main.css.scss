@@ -14,8 +14,25 @@ body {
 }
 
 nav {
+    display: grid;
+    grid-template-columns: 5% 30% 30% 25% 10%;
     grid-column: span 5;
     background-color: black;
+    margin-bottom: 3%;
+}
+
+.admin-nav {
+    grid-column: 3 / 4;
+}
+
+.nav-home {
+    grid-column: 2 / 3;
+}
+
+.nav-why {
+    grid-column: 4 / 5;
+    max-width: 100%;
+    height: 60px;
 }
 
 main {
