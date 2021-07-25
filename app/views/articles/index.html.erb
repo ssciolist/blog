@@ -1,5 +1,11 @@
-
+<main>
     <% @articles.each do |article| %>
-       <%= link_to article.title, article_path(article) %>
-       <%= article.body %>
+      <%= content_tag :article do %>
+         <%= link_to article.title, article_path(article), class: 'article-title' %>
+         <%= article.body %>
+      <% end %>
     <% end %>
+</main>
+<section>
+   <%# This is where tags or other navigation will go %>
+</section>
