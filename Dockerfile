@@ -18,6 +18,5 @@ COPY package.json yarn.lock ./
 
 COPY . ./
 
-#is this line needed? DO thinks no
-RUN chmod +x entrypoint.sh
-ENTRYPOINT ["./entrypoint.sh"]
+RUN chmod +x docker-entrypoint.sh
+ENTRYPOINT ["./docker-entrypoint.sh"]
