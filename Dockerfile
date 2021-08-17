@@ -3,7 +3,9 @@ FROM ruby:2.6.3-alpine
 RUN apk add --update \
     nodejs \
     postgresql-dev \
-    build-base
+    build-base \
+    tzdata \
+    imagemagick
 
 # Create and set build context
 RUN mkdir /src
@@ -14,7 +16,7 @@ RUN gem install bundler -v 2.2.4
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle config build.nokogiri --use-system-libraries
-RUN bundle install
+RUN bundle check || bundle install
 
 COPY package.json yarn.lock ./
 
