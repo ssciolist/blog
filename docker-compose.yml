@@ -24,7 +24,8 @@ services:
     gems:
         image: busybox
         volumes:
-            - /gems
+            - blog-gems/gems
 
 volumes:
     blog-db-data:
+    blog-gems:
