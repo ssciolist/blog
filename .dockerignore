@@ -4,6 +4,9 @@
 # Ignore compressed binary files
 .bin
 
+# Ignore .env
+.env
+
 # Ignore gitfiles
 .git
 .gitignore
@@ -29,11 +32,7 @@ capybara-*.html
 public/packs
 public/packs-test
 public/system
-node_modules
 yarn-error.log
 
 # Ignore Ruby cache files
 *.rbc
-
-# Ignore .env
-.env
