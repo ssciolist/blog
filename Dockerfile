@@ -5,7 +5,8 @@ RUN apk add --update \
     postgresql-dev \
     build-base \
     tzdata \
-    imagemagick
+    imagemagick \
+    yarn
 
 # Create and set build context
 RUN mkdir /src
