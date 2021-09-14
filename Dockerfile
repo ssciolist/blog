@@ -1,12 +1,14 @@
-FROM ruby:2.6.3-alpine
+FROM ruby:2.6.3-alpine AS base
 
 RUN apk add --update \
-    nodejs \
     postgresql-dev \
     build-base \
     tzdata \
-    imagemagick \
-    yarn
+    imagemagick 
+
+FROM node:14.17.6-alpine
+COPY --from=base . ./
+RUN apk add --update yarn
 
 # Create and set build context
 RUN mkdir /src
