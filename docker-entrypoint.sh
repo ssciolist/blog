@@ -7,6 +7,7 @@ fi
 
 bundle config build.nokogiri --use-system-libraries
 # ^ Not sure I need this one anymore
+bundle exec rake assets:precompile
 bundle check || bundle install --jobs=9 --retry=3
 bundle exec rails db:prepare
 
