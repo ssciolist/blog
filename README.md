@@ -1,4 +1,6 @@
 * Ruby version: 2.6.3
+* Postgres version: 
+* Node version:
 
 # Environment
 This project requires the following environment variables be set:
@@ -9,7 +11,10 @@ This project requires the following environment variables be set:
     * ENV['PRIMARY_USER']
     * ENV['PRIMARY_USER_PW']
 
-# Docker 
+# Docker startup
+1. Start a local postgres instance with password and user matching your environment values 
+- `docker run --name blog_db -e POSTGRES_PASSWORD=[ENV['POSTGRES_PASSWORD]] -e POSTGRES_USER=[ENV['POSTGRES_USER']] -d postgres`
+
 
 # README to-do
 
