@@ -1,0 +1,38 @@
+# Ignore Mac OS invisible file
+.DS_Store
+
+# Ignore compressed binary files
+.bin
+
+# Ignore .env
+.env
+
+# Ignore gitfiles
+.git
+.gitignore
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Environment normalisation:
+.bundleignore
+.bundle
+
+# Ignore testing files
+.byebug_history
+.rspec
+coverage/
+spec/tmp
+capybara-*.html
+
+# Ignore some Rails 
+public/packs
+public/packs-test
+public/system
+yarn-error.log
+
+# Ignore Ruby cache files
+*.rbc
