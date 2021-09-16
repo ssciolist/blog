@@ -1,0 +1,33 @@
+version: '3'
+services:
+    db:
+        image: postgres
+        restart: always
+        volumes:
+            - blog-db-data:/var/lib/postgresql/data
+            # https://stackoverflow.com/questions/41637505/how-to-persist-data-in-a-dockerized-postgres-database-using-volumes
+        env_file: .env
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        # volumes:
+            # - .:/src
+            # only run ^ in dev to see code changes
+        volumes_from:
+            - gems
+        ports:
+            - "3000:3000"
+        depends_on:
+            - db
+        env_file: .env
+        environment:
+            RAILS_LOG_TO_STDOUT: 'true'
+    gems:
+        image: busybox
+        volumes:
+            - blog-gems:/gems
+
+volumes:
+    blog-db-data:
+    blog-gems:
