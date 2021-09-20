@@ -1,5 +1,5 @@
 <nav>
-    <%= image_tag('/assets/Home.png', alt:'Home', class:'nav-home') %>
+    <%= image_pack_tag('media/images/Home.png', alt:'Home', class:'nav-home') %>
     <ol class='admin-nav'>
         <% if registered_user %>
             <li>
@@ -10,5 +10,5 @@
             </li>
         <% end %>
     </ol>
-    <%= image_tag('/assets/Questions.png', alt:'Why?', class:'nav-why') %>
+    <%= image_pack_tag('media/images/Questions.png', alt:'Why?', class:'nav-why') %>
 </nav>
