@@ -4,12 +4,16 @@
 
 # Environment
 This project requires the following environment variables be set:
+## In dev
 * For database image:
     * ENV['POSTGRES_USER']
     * ENV['POSTGRES_PASSWORD']
 * To set author
     * ENV['PRIMARY_USER']
     * ENV['PRIMARY_USER_PW']
+## In production
+* ENV['RAILS_ENV']
+* ENV['RAILS_SERVE_STATIC_FILES']=true 
 
 # Docker startup
 ## In dev
