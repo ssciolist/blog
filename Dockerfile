@@ -24,7 +24,6 @@ RUN yarn install --frozen-lockfile
 
 FROM base
 # Create and set build context
-RUN mkdir /src
 WORKDIR /src
 
 COPY --from=dependencies /usr/local/bundle /usr/local/bundle
