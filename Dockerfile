@@ -1,26 +1,39 @@
-FROM ruby:2.6.3-alpine AS base
+FROM ruby:2.6.8-alpine AS base
 
 RUN apk add --update \
     postgresql-dev \
     build-base \
     tzdata \
-    imagemagick 
+    imagemagick \
+    nodejs \
+    yarn
 
-FROM node:14.17.6-alpine
-COPY --from=base . ./
-RUN apk add --update yarn
+FROM base AS dependencies
 
+COPY Gemfile Gemfile.lock ./
+
+RUN gem install nokogiri --platform=ruby
+RUN gem install bundler -v 2.2.4
+
+RUN bundle install --jobs=9 --retry=3
+
+COPY package.json yarn.lock ./
+
+# Install npm packages
+RUN yarn install --frozen-lockfile
+
+FROM base
 # Create and set build context
 RUN mkdir /src
 WORKDIR /src
 
-ENV BUNDLER_VERSION=2.2.4
-ENV BUNDLE_PATH /gems
-RUN gem install bundler -v 2.2.4
-
-COPY package.json yarn.lock ./
+COPY --from=dependencies /usr/local/bundle /usr/local/bundle
+COPY --from=dependencies /node_modules/ node_modules/
 
 COPY . ./
+RUN bundle exec rake assets:precompile
 
 RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT ["./docker-entrypoint.sh"]
+
+CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
