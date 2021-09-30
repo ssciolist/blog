@@ -1,9 +1,11 @@
-* Ruby version: 2.6.3
+* Ruby version: 2.6.8
 * Postgres version: 13.3
 * Node version: 14.17.6
 
+
 # Environment
 This project requires the following environment variables be set:
+
 ## In dev
 * For database image:
     * ENV['POSTGRES_USER']
@@ -11,9 +13,11 @@ This project requires the following environment variables be set:
 * To set author
     * ENV['PRIMARY_USER']
     * ENV['PRIMARY_USER_PW']
+
 ## In production
 * ENV['RAILS_ENV']
 * ENV['RAILS_SERVE_STATIC_FILES']=true 
+
 
 # Docker startup
 ## In dev
