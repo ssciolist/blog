@@ -21,6 +21,15 @@ services:
         env_file: .env
         environment:
             RAILS_LOG_TO_STDOUT: 'true'
-
+    server:
+        image: nginx:mainline-alpine
+        container_name: server
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx-conf:/etc/nginx/conf.d
+        depends_on:
+            - web
 volumes:
     db-data:
